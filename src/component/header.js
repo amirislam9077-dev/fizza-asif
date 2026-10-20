@@ -4,9 +4,6 @@ import './header.css';
 // `collection` opens that collection page, `section` scrolls to that home page section
 const navItems = [
   { label: 'NEW ARRIVALS', section: 'new-arrivals' },
-  { label: "BRIDAL COUTURE '26", collection: 'bridal' },
-  { label: 'LUXURY FORMALS', collection: 'luxury' },
-  { label: 'DEMI COUTURE', collection: 'demi' },
   { label: 'AK KAFTAN', collection: 'kaftan' },
   { label: 'LUXURY PRINTS', collection: 'prints' },
   { label: 'TIMELESS BRIDAL COUTURE', section: 'timeless-bridal' },
