@@ -120,7 +120,7 @@ function App() {
   const cartCount = cartItems.reduce((s, i) => s + i.qty, 0);
 
   return (
-    <div style={{ paddingTop: page === 'checkout' ? '0' : '160px', overflowX: page === 'checkout' ? 'hidden' : 'visible', width: '100%' }}>
+    <div className={`app-shell${page === 'checkout' ? ' app-shell--checkout' : ''}`}>
       {page !== 'checkout' && <Header cartCount={cartCount} onCartOpen={() => setCartOpen(true)} onNavClick={handleNavClick} />}
 
       {page === 'checkout' ? (

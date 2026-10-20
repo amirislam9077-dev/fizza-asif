@@ -166,7 +166,8 @@
 }
 
 .newpro-size-btn {
-  width: 52px;
+  min-width: 52px;
+  padding: 0 14px; /* longer sizes like "Made to Measure" widen the button */
   height: 52px;
   border: 1px solid #ccc;
   background: #fff;
@@ -427,4 +428,27 @@
   font-size: 13px;
   color: #444;
   margin: 0;
+}
+
+/* ── Tablet: pictures on top, details below ── */
+@media (max-width: 900px) {
+  .newpro-back-btn { padding-left: 20px; padding-right: 20px; }
+  .newpro-page { grid-template-columns: 1fr; gap: 28px; padding: 24px 20px 48px; }
+  .newpro-details { max-width: 620px; }
+  .rec-section { padding: 28px 20px 48px; }
+}
+
+/* ── Phone ── */
+@media (max-width: 600px) {
+  .newpro-back-btn { padding: 18px 16px 0; }
+  .newpro-page { gap: 22px; padding: 16px 12px 40px; }
+  .newpro-main-imgs { gap: 6px; }
+  .newpro-details { gap: 12px; }
+  .newpro-name { font-size: 24px; }
+  .newpro-size-btn { min-width: 48px; height: 48px; }
+  .newpro-add-btn, .newpro-wa-btn { padding: 15px; }
+  .rec-section { padding: 24px 12px 40px; }
+  .rec-title { font-size: 19px; }
+  .rec-card { flex: 0 0 46%; min-width: 150px; }
+  .rec-name { font-size: 13px; }
 }

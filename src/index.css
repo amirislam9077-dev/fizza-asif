@@ -8,6 +8,22 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Page wrapper: leaves room for the fixed header */
+.app-shell {
+  width: 100%;
+  padding-top: 160px;
+  overflow-x: clip;
+}
+.app-shell--checkout { padding-top: 0; }
+
+/* Phone header is shorter (see header.css) */
+@media (max-width: 600px) {
+  .app-shell { padding-top: 134px; }
+  .app-shell--checkout { padding-top: 0; }
+}
+
+img { max-width: 100%; }
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

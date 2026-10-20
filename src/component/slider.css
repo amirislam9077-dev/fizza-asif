@@ -125,3 +125,33 @@
   transition: background 0.3s;
 }
 .dot.active { background: rgba(255,255,255,0.9); }
+
+/* ── Tablet ── */
+@media (max-width: 1024px) {
+  .slider { min-height: 380px; }
+  .slide-content.align-left  { left: 56px; }
+  .slide-content.align-right { right: 56px; }
+  .slide-title { font-size: 44px; }
+}
+
+/* ── Phone ── */
+@media (max-width: 600px) {
+  .slider { height: 62vh; min-height: 340px; max-height: 520px; }
+  .slide-img { object-position: center; }
+  .slide-overlay { background: rgba(0,0,0,0.28); }
+  .slide-content.align-left,
+  .slide-content.align-right {
+    left: 24px;
+    right: 24px;
+    top: auto;
+    bottom: 48px;
+    transform: none;
+    text-align: center;
+  }
+  .slide-title { font-size: 30px; margin-bottom: 16px; }
+  .slide-cta { padding: 10px 22px; font-size: 10px; }
+  .slider-arrow { font-size: 30px; width: 32px; }
+  .slider-arrow.left  { left: 4px; }
+  .slider-arrow.right { right: 4px; }
+  .slider-dots { bottom: 16px; }
+}

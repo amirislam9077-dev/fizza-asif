@@ -102,3 +102,18 @@
 .pro2-card:hover .pro2-cta {
   opacity: 0.7;
 }
+
+/* ── Tablet ── */
+@media (max-width: 1024px) {
+  .pro2-quote { font-size: 15px; padding: 28px 24px 24px; }
+  .pro2-title { font-size: 28px; }
+  .pro2-content { top: 22px; }
+}
+
+/* ── Phone: stack the two promos ── */
+@media (max-width: 600px) {
+  .pro2-quote { font-size: 14px; padding: 24px 20px 20px; }
+  .pro2-grid { grid-template-columns: 1fr; }
+  .pro2-card-inner { aspect-ratio: 4 / 5; }
+  .pro2-title { font-size: 30px; }
+}

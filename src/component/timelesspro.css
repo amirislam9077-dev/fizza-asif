@@ -238,3 +238,25 @@
   text-align: center;
 }
 .tlp-price.sold { color: #aaa; }
+
+/* ── Tablet: 3 columns ── */
+@media (max-width: 1024px) {
+  .tlp-grid { grid-template-columns: repeat(3, 1fr); padding: 28px 20px 48px; }
+  .tlp-toolbar, .tlp-filter-panel { padding-left: 20px; padding-right: 20px; }
+  .tlp-back-btn, .tlp-breadcrumb { padding-left: 20px; padding-right: 20px; }
+  .tlp-title { font-size: 32px; }
+}
+
+/* ── Phone: 2 columns, header already sits right above the content ── */
+@media (max-width: 600px) {
+  .tlp-back-btn { padding: 18px 16px 0; }
+  .tlp-breadcrumb { padding: 10px 16px 0; }
+  .tlp-title { font-size: 26px; margin: 20px 16px 20px; }
+  .tlp-toolbar { padding: 0 16px 12px; }
+  .tlp-left-bar { gap: 12px; }
+  .tlp-filter-panel { padding: 16px; }
+  .tlp-grid { grid-template-columns: repeat(2, 1fr); gap: 18px 10px; padding: 18px 12px 40px; }
+  .tlp-name { font-size: 11px; margin-top: 8px; }
+  .tlp-price { font-size: 12px; }
+  .tlp-quick-view { display: none; }
+}

@@ -308,3 +308,61 @@
   align-items: center;
   justify-content: center;
 }
+
+/* Hamburger + mobile menu (hidden on desktop) */
+.menu-btn { display: none; }
+.mobile-menu { display: none; }
+
+/* ── Tablet & phone: hamburger menu instead of the inline links ── */
+@media (max-width: 900px) {
+  .menu-btn { display: flex; margin-right: 4px; }
+  .nav-scroll-wrap { display: none; }
+  .nav-icons { margin-left: auto; }
+
+  .mobile-menu {
+    display: block;
+    list-style: none;
+    background: #fff;
+    border-top: 1px solid #eee;
+    max-height: calc(100vh - 56px);
+    overflow-y: auto;
+  }
+  .mobile-menu-link {
+    display: block;
+    padding: 16px 20px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #111;
+    text-decoration: none;
+    border-bottom: 1px solid #f2f2f2;
+  }
+  .mobile-menu-link:active,
+  .mobile-menu-link:hover { background: #f7f4f0; color: #8a6a4a; }
+}
+
+/* ── Phone: compact header (total height ≈ 134px, matches .app-shell padding) ── */
+@media (max-width: 600px) {
+  .announcement-bar { padding: 8px 10px; gap: 10px; font-size: 9.5px; letter-spacing: 0.8px; }
+  .ann-arrow { font-size: 18px; }
+  .ann-text { max-width: calc(100vw - 70px); }
+
+  .top-bar { display: none; }
+
+  .brand-bar { padding: 10px 12px 8px; }
+  .brand-name { font-size: 20px; letter-spacing: 5px; }
+
+  .nav-bar,
+  .nav-icons {
+    height: 56px !important;
+    min-height: 56px !important;
+    max-height: 56px !important;
+  }
+  .nav-bar { padding: 0 8px; }
+  .nav-icons { gap: 6px; padding-left: 0; }
+  .flag { font-size: 16px; }
+
+  /* Nav bar clips overflow, so the search box stays inside it and covers the icons while open */
+  .search-box input { width: calc(100vw - 110px); }
+}

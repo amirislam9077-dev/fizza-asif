@@ -81,3 +81,19 @@
 .modern-btn:hover {
   background: #3a3a3a;
 }
+
+/* ── Tablet ── */
+@media (max-width: 1024px) {
+  .modern-section { min-height: 460px; }
+  .modern-right { padding: 48px 32px; }
+  .modern-title { font-size: 30px; }
+}
+
+/* ── Phone: picture on top, text below ── */
+@media (max-width: 600px) {
+  .modern-section { grid-template-columns: 1fr; min-height: 0; }
+  .modern-left { aspect-ratio: 4 / 5; }
+  .modern-right { padding: 40px 20px 48px; gap: 16px; }
+  .modern-title { font-size: 26px; }
+  .modern-desc { font-size: 13px; }
+}

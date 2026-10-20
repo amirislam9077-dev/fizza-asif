@@ -140,3 +140,18 @@
 .best-price s {
   color: #aaa;
 }
+
+/* ── Tablet ── */
+@media (max-width: 1024px) {
+  .best-section { padding: 40px 16px 44px; }
+  .best-grid { gap: 10px; }
+}
+
+/* ── Phone: 2 × 2 grid ── */
+@media (max-width: 600px) {
+  .best-section { padding: 32px 16px 36px; }
+  .best-header { margin-bottom: 18px; }
+  .best-title { font-size: 18px; letter-spacing: 2px; }
+  .best-grid { grid-template-columns: repeat(2, 1fr); gap: 16px 10px; }
+  .best-name, .best-price { font-size: 12px; }
+}

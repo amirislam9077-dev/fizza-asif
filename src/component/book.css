@@ -80,3 +80,18 @@
   background: #1a1a1a;
   color: #fff;
 }
+
+/* ── Tablet & phone: iOS does not support fixed backgrounds, so scroll normally ── */
+@media (max-width: 1024px) {
+  .book-bg { background-attachment: scroll; }
+  .book-content { padding: 0 32px; }
+}
+
+@media (max-width: 600px) {
+  .book-bg { height: auto; min-height: 420px; }
+  .book-content { padding: 48px 20px; min-height: 420px; gap: 14px; }
+  .book-title { font-size: 15px; letter-spacing: 2px; }
+  .book-desc { font-size: 13px; }
+  .book-btns { flex-direction: column; width: 100%; max-width: 300px; gap: 10px; }
+  .book-btn { text-align: center; padding: 13px 20px; }
+}

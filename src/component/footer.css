@@ -151,3 +151,16 @@
   color: #444;
   font-size: 11px;
 }
+
+/* ── Tablet: 2 × 2 columns ── */
+@media (max-width: 1024px) {
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; padding: 48px 32px 36px; }
+  .footer-bottom { padding: 18px 32px; }
+}
+
+/* ── Phone: single column ── */
+@media (max-width: 600px) {
+  .footer-top { grid-template-columns: 1fr; gap: 28px; padding: 40px 20px 28px; }
+  .footer-tagline { max-width: none; }
+  .footer-bottom { flex-direction: column; gap: 6px; text-align: center; padding: 16px 20px 20px; }
+}

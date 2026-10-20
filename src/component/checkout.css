@@ -596,9 +596,27 @@
 .co-grand-val { font-size: 17px; font-weight: 700; color: #1a1a1a; }
 
 /* ── Responsive ── */
+@media (max-width: 1024px) {
+  .co-right { width: 320px; }
+  .co-left { padding: 20px 24px 24px; }
+}
+
 @media (max-width: 768px) {
+  .co-page { height: 100dvh; }
   .co-body { flex-direction: column; overflow-y: auto; }
-  .co-left { flex: none; border-right: none; border-bottom: 1px solid #e8e8e8; }
-  .co-right { width: 100%; flex: none; }
+  .co-left { flex: none; border-right: none; border-bottom: 1px solid #e8e8e8; overflow: visible; }
+  .co-right { width: 100%; flex: none; overflow: visible; }
   .co-map-section { flex: 0 0 220px; }
+  .co-form { max-width: none; }
+}
+
+/* ── Phone ── */
+@media (max-width: 600px) {
+  .co-topbar { padding: 0 14px; }
+  .co-logo { font-size: 15px; letter-spacing: 3px; }
+  .co-map-section { flex: 0 0 180px; }
+  .co-left { padding: 16px 14px 20px; }
+  .co-right { padding: 16px 14px 28px; }
+  .co-checkout-heading { font-size: 18px; letter-spacing: 2px; }
+  .co-input { font-size: 16px; } /* 16px stops iPhone from zooming into the field */
 }

@@ -112,3 +112,21 @@
 .timeless-right:hover .timeless-main-img {
   transform: scale(1.03);
 }
+
+/* ── Tablet ── */
+@media (max-width: 1024px) {
+  .timeless-section { min-height: 480px; }
+  .timeless-left { padding: 48px 28px; }
+  .timeless-title { font-size: 30px; }
+  .timeless-thumb-wrap { width: 180px; }
+}
+
+/* ── Phone: text panel on top, picture below ── */
+@media (max-width: 600px) {
+  .timeless-section { grid-template-columns: 1fr; min-height: 0; }
+  .timeless-left { padding: 40px 20px; gap: 14px; }
+  .timeless-title { font-size: 28px; }
+  .timeless-quote { font-size: 12.5px; }
+  .timeless-thumb-wrap { width: 160px; }
+  .timeless-right { aspect-ratio: 4 / 5; }
+}

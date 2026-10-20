@@ -80,3 +80,16 @@
 .video-cta:hover {
   background: rgba(255, 255, 255, 0.15);
 }
+
+/* ── Tablet ── */
+@media (max-width: 1024px) {
+  .video-wrap { height: 56vh; min-height: 380px; }
+  .video-title { font-size: 40px; letter-spacing: 4px; }
+}
+
+/* ── Phone ── */
+@media (max-width: 600px) {
+  .video-wrap { height: 60vh; min-height: 320px; }
+  .video-title { font-size: 26px; letter-spacing: 3px; }
+  .video-label { font-size: 10px; letter-spacing: 3px; }
+}
