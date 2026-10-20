@@ -1,0 +1,153 @@
+.footer {
+  background: #0a0a0a;
+  color: #c8c0b8;
+  width: 100%;
+}
+
+/* ── Top section ── */
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.8fr;
+  gap: 48px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 64px 48px 48px;
+}
+
+/* Brand column */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-logo {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 20px;
+  letter-spacing: 5px;
+  color: #fff;
+}
+
+.footer-tagline {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #a09888;
+  max-width: 280px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.footer-social-icon {
+  color: #a09888;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+.footer-social-icon:hover { color: #fff; }
+
+/* Link columns */
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-col-title {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  font-weight: 700;
+  color: #c8a96e;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links a {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  color: #a09888;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: #fff; }
+
+/* Newsletter column */
+.footer-newsletter-desc {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  color: #a09888;
+  line-height: 1.6;
+}
+
+.footer-newsletter {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #444;
+  margin-top: 4px;
+  padding-bottom: 6px;
+  gap: 8px;
+}
+
+.footer-email-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  padding: 4px 0;
+  letter-spacing: 0.3px;
+}
+
+.footer-email-input::placeholder { color: #666; }
+
+.footer-subscribe-btn {
+  background: none;
+  border: none;
+  color: #c8a96e;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s;
+  padding: 0;
+}
+.footer-subscribe-btn:hover { color: #fff; }
+
+/* ── Bottom bar ── */
+.footer-bottom {
+  border-top: 1px solid #1e1e1e;
+  padding: 20px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  font-size: 11.5px;
+  color: #555;
+  letter-spacing: 0.2px;
+}
+
+.footer-powered {
+  color: #444;
+  font-size: 11px;
+}

@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&display=swap');
+
+.slider {
+  position: relative;
+  width: 100%;
+  height: 56vw;
+  max-height: 680px;
+  min-height: 420px;
+  overflow: hidden;
+  display: block;
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide.fade { animation: fadeSlide 0.6s ease; }
+
+@keyframes fadeSlide {
+  from { opacity: 0.35; }
+  to   { opacity: 1; }
+}
+
+/* Full bleed image */
+.slide-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* Subtle dark overlay */
+.slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.15);
+  z-index: 1;
+}
+
+/* Text overlaid on image */
+.slide-content {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.slide-content.align-left  { left: 80px;  text-align: left; }
+.slide-content.align-right { right: 80px; text-align: right; }
+
+.slide-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 58px;
+  line-height: 1.1;
+  letter-spacing: 1px;
+  color: #fff;
+  margin-bottom: 24px;
+  text-shadow: 0 2px 18px rgba(0,0,0,0.25);
+}
+
+.slide-cta {
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.85);
+  padding: 11px 26px;
+  transition: background 0.2s;
+}
+.slide-cta:hover { background: rgba(255,255,255,0.15); }
+
+/* Arrows */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 40px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+  line-height: 1;
+}
+.slider-arrow:hover { opacity: 1; }
+.slider-arrow.left  { left: 16px; }
+.slider-arrow.right { right: 16px; }
+
+/* Dots */
+.slider-dots {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.8);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s;
+}
+.dot.active { background: rgba(255,255,255,0.9); }

@@ -1,0 +1,93 @@
+.bridal-section {
+  width: 100%;
+  background: #fff;
+  padding: 48px 24px 52px;
+}
+
+/* Header: title left, arrows right */
+.bridal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto 28px;
+}
+
+.bridal-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bridal-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 30px;
+  color: #1a1a1a;
+  letter-spacing: 0.5px;
+}
+
+.bridal-viewall {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  color: #1a1a1a;
+  text-decoration: none;
+  border-bottom: 1px solid #1a1a1a;
+  padding-bottom: 1px;
+  width: fit-content;
+  transition: opacity 0.2s;
+}
+.bridal-viewall:hover { opacity: 0.6; }
+
+/* Prev / Next arrows */
+.bridal-arrows {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding-top: 4px;
+}
+
+.bridal-arrow {
+  background: none;
+  border: 1px solid #ccc;
+  width: 36px;
+  height: 36px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, color 0.2s;
+  line-height: 1;
+}
+.bridal-arrow:hover:not(:disabled) { border-color: #1a1a1a; color: #1a1a1a; }
+.bridal-arrow:disabled { opacity: 0.3; cursor: default; }
+
+/* 3 equal portrait columns */
+.bridal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.bridal-card {
+  display: block;
+  overflow: hidden;
+}
+
+.bridal-img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.bridal-card:hover .bridal-img {
+  transform: scale(1.04);
+}

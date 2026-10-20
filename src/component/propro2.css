@@ -1,0 +1,407 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&display=swap');
+
+.pp2-wrap {
+  background: #fff;
+  min-height: 100vh;
+}
+
+.pp2-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  color: #1a1a1a;
+  cursor: pointer;
+  padding: 56px 32px 0;
+  letter-spacing: 0.5px;
+  text-decoration: underline;
+}
+.pp2-back-btn:hover { color: #8a6a4a; }
+
+/* ── Main product grid ── */
+.pp2-page {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 48px;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 32px 32px 60px;
+  background: #fff;
+}
+
+/* ── Left: Images ── */
+.pp2-images {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pp2-main-imgs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.pp2-main-img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  background: #f0ece8;
+}
+
+.pp2-main-img--full {
+  aspect-ratio: 3 / 4;
+}
+
+/* Thumbnail strip */
+.pp2-thumbs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pp2-thumb {
+  width: 72px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center top;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.2s;
+  background: #f0ece8;
+}
+
+.pp2-thumb.active,
+.pp2-thumb:hover {
+  border-color: #1a1a1a;
+}
+
+/* ── Right: Details ── */
+.pp2-details {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 4px;
+}
+
+.pp2-badge {
+  display: inline-block;
+  border: 1px solid #1a1a1a;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  color: #1a1a1a;
+  padding: 4px 10px;
+  width: fit-content;
+}
+
+.pp2-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 32px;
+  color: #1a1a1a;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.pp2-collection {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #888;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.pp2-price {
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  color: #1a1a1a;
+  font-weight: 500;
+  margin: 0;
+}
+
+.pp2-divider {
+  border: none;
+  border-top: 1px solid #e8e8e8;
+  margin: 0;
+}
+
+.pp2-tag-wrap {
+  display: flex;
+}
+
+.pp2-tag {
+  border: 1px solid #ccc;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  color: #444;
+  padding: 6px 14px;
+}
+
+/* Size section */
+.pp2-size-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pp2-size-label {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.pp2-sizes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pp2-size-btn {
+  width: 52px;
+  height: 52px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.pp2-size-btn:hover { border-color: #1a1a1a; }
+
+.pp2-size-btn.selected {
+  border: 2px solid #1a1a1a;
+  font-weight: 600;
+}
+
+.pp2-size-guide {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: #1a1a1a;
+  text-decoration: underline;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+}
+
+/* Quantity */
+.pp2-qty {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  width: fit-content;
+}
+
+.pp2-qty-btn {
+  background: none;
+  border: none;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  cursor: pointer;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.pp2-qty-btn:hover { background: #f5f5f5; }
+
+.pp2-qty-val {
+  width: 40px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  height: 40px;
+  line-height: 40px;
+}
+
+/* Add to bag */
+.pp2-add-btn {
+  width: 100%;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #1a1a1a;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 2.5px;
+  font-weight: 600;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s;
+}
+.pp2-add-btn:hover {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+/* Buy it now */
+.pp2-buy-btn {
+  width: 100%;
+  padding: 16px;
+  background: #1a1a1a;
+  border: 1px solid #1a1a1a;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 2.5px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.25s;
+}
+.pp2-buy-btn:hover { background: #3a3a3a; }
+
+/* Description */
+.pp2-desc {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  color: #444;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* Meta rows */
+.pp2-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pp2-meta-title {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.pp2-meta-val {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  color: #444;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ── Recommended Products ── */
+.pp2-rec-section {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 40px 32px 60px;
+}
+
+.pp2-rec-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.pp2-rec-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 22px;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.pp2-rec-arrows {
+  display: flex;
+  gap: 8px;
+}
+
+.pp2-rec-arrow-btn {
+  background: none;
+  border: 1px solid #ccc;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #1a1a1a;
+  transition: border-color 0.2s, background 0.2s;
+}
+.pp2-rec-arrow-btn:hover {
+  border-color: #1a1a1a;
+  background: #f7f4f0;
+}
+
+.pp2-rec-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.pp2-rec-track::-webkit-scrollbar { display: none; }
+
+.pp2-rec-card {
+  flex: 0 0 calc(25% - 12px);
+  min-width: 220px;
+  cursor: pointer;
+}
+
+.pp2-rec-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: #f0ece8;
+}
+
+.pp2-rec-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border: 1px solid #1a1a1a;
+  background: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+  color: #1a1a1a;
+  padding: 3px 8px;
+  z-index: 1;
+}
+
+.pp2-rec-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.pp2-rec-card:hover .pp2-rec-img { transform: scale(1.03); }
+
+.pp2-rec-name {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  margin: 10px 0 4px;
+}
+
+.pp2-rec-price {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  color: #444;
+  margin: 0;
+}

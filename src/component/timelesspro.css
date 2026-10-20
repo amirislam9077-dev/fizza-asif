@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&display=swap');
+
+.tlp-wrap {
+  background: #fff;
+  min-height: 100vh;
+}
+
+.tlp-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  color: #1a1a1a;
+  cursor: pointer;
+  padding: 56px 32px 0;
+  letter-spacing: 0.5px;
+  text-decoration: underline;
+}
+.tlp-back-btn:hover { color: #8a6a4a; }
+
+/* Breadcrumb */
+.tlp-breadcrumb {
+  padding: 16px 32px 0;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: #888;
+}
+.tlp-bc-home {
+  color: #1a1a1a;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.tlp-bc-home:hover { color: #8a6a4a; }
+.tlp-bc-sep { color: #ccc; margin: 0 4px; }
+.tlp-bc-current { color: #888; }
+
+/* Collection title */
+.tlp-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 38px;
+  color: #1a1a1a;
+  text-align: center;
+  margin: 32px 0 28px;
+  letter-spacing: 0.5px;
+}
+
+/* ── Toolbar ── */
+.tlp-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px 16px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.tlp-left-bar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.tlp-filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  color: #1a1a1a;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  padding: 0;
+}
+.tlp-filter-btn:hover { color: #8a6a4a; }
+
+.tlp-count {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  color: #888;
+}
+
+.tlp-sort-wrap { position: relative; }
+
+.tlp-sort-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  color: #1a1a1a;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  padding: 0;
+}
+.tlp-sort-btn:hover { color: #8a6a4a; }
+
+.tlp-sort-dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  list-style: none;
+  min-width: 200px;
+  z-index: 100;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  padding: 0;
+  margin: 0;
+}
+.tlp-sort-opt {
+  padding: 11px 18px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  color: #1a1a1a;
+  cursor: pointer;
+}
+.tlp-sort-opt:hover { background: #f7f4f0; color: #8a6a4a; }
+.tlp-sort-opt.active { font-weight: 600; }
+
+/* ── Filter panel ── */
+.tlp-filter-panel {
+  display: flex;
+  gap: 48px;
+  padding: 20px 32px;
+  border-bottom: 1px solid #e8e8e8;
+  background: #fafafa;
+}
+.tlp-filter-group { display: flex; flex-direction: column; gap: 8px; }
+.tlp-filter-heading {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 4px;
+}
+.tlp-filter-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  color: #444;
+  cursor: pointer;
+}
+.tlp-filter-check input { cursor: pointer; accent-color: #1a1a1a; }
+
+/* ── Product grid — 4 columns ── */
+.tlp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px 16px;
+  padding: 32px 32px 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.tlp-card { cursor: pointer; }
+
+.tlp-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: #f5ede8;
+}
+
+.tlp-sold-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #fff;
+  border: 1px solid #1a1a1a;
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+  color: #1a1a1a;
+  padding: 3px 8px;
+  z-index: 2;
+}
+
+.tlp-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+/* QUICK VIEW overlay */
+.tlp-quick-view {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255,255,255,0.93);
+  border: none;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: #1a1a1a;
+  padding: 14px;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.2s;
+}
+.tlp-quick-view:hover { background: #fff; }
+
+/* Product name & price */
+.tlp-name {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  margin: 12px 0 5px;
+  padding: 0 2px;
+  text-align: center;
+}
+.tlp-name.sold { color: #aaa; }
+
+.tlp-price {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  color: #555;
+  margin: 0;
+  padding: 0 2px 4px;
+  text-align: center;
+}
+.tlp-price.sold { color: #aaa; }

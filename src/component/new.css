@@ -1,0 +1,80 @@
+.new-arrivals {
+  width: 100%;
+  padding: 48px 24px 40px;
+  background: #fff;
+}
+
+.new-arrivals-title {
+  text-align: center;
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 32px;
+  letter-spacing: 4px;
+  color: #1a1a1a;
+  margin-bottom: 28px;
+  text-transform: uppercase;
+}
+
+/* 3 equal columns, no gap */
+.new-arrivals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.new-card {
+  text-decoration: none;
+  display: block;
+}
+
+.new-card-inner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.new-card-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.new-card:hover .new-card-img {
+  transform: scale(1.04);
+}
+
+/* Gradient overlay at bottom for label readability */
+.new-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.1) 40%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+/* Label at bottom-left exactly like the image */
+.new-card-label {
+  position: absolute;
+  bottom: 22px;
+  left: 22px;
+  z-index: 2;
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 22px;
+  color: #fff;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}

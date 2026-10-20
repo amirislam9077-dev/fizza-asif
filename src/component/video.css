@@ -1,0 +1,82 @@
+.video-section {
+  width: 100%;
+  background: #111;
+}
+
+.video-wrap {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  min-height: 420px;
+  overflow: hidden;
+}
+
+/* Full bleed video */
+.video-player {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* Dark cinematic overlay — matches the moody look in the reference */
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+/* Centered text over video */
+.video-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.video-label {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.video-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 56px;
+  color: #fff;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+}
+
+.video-cta {
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  padding: 11px 30px;
+  margin-top: 6px;
+  transition: background 0.25s, color 0.25s;
+}
+
+.video-cta:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
