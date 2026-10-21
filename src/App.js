@@ -146,7 +146,7 @@ function App() {
           <Slider onCollectionClick={openCollection} />
           <NewArrivals onProductClick={openProduct} />
           <Pro2 onCollectionClick={openCollection} />
-          <VideoSection />
+          <VideoSection onExplore={() => openCollection('newarrivals')} />
           <Bridal onCollectionClick={() => openCollection('bridal')} onProductClick={openProduct} />
           <BookConsultation />
           <BestSellers onProductClick={openProduct} onViewAll={() => openCollection('bestsellers')} />

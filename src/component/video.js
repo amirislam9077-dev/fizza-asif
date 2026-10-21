@@ -1,24 +1,31 @@
 import './video.css';
 
-export default function VideoSection() {
+export default function VideoSection({ onExplore }) {
   return (
     <section className="video-section">
       <div className="video-wrap">
+        {/* Full-HD runway clip (Kling watermark painted out); muted + playsInline let it autoplay on phones */}
         <video
           className="video-player"
           autoPlay
           muted
           loop
           playsInline
-          poster="https://www.ammarakhan.com/cdn/shop/files/1000x1000_87d72021-fd47-47df-a976-8825da0f55de.jpg"
+          poster="/videos/runway-poster.jpg"
         >
-          <source src="/video/collection.mp4" type="video/mp4" />
+          <source src="/videos/runway.mp4" type="video/mp4" />
         </video>
         <div className="video-overlay" />
         <div className="video-content">
           <p className="video-label">THE NEW COLLECTION</p>
           <h2 className="video-title">Fizza Asif</h2>
-          <a href="#" className="video-cta">EXPLORE NOW</a>
+          <a
+            href="#newarrivals"
+            className="video-cta"
+            onClick={e => { e.preventDefault(); onExplore && onExplore(); }}
+          >
+            EXPLORE NOW
+          </a>
         </div>
       </div>
     </section>
