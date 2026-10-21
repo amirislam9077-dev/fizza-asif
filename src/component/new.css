@@ -52,10 +52,32 @@
   transform: scale(1.04);
 }
 
-/* The WhatsApp clip (480x1040) has ~9% black bands top and bottom; the card shows
-   the middle ~60% of the frame, so start the view just below the top band. */
-.new-card-video {
-  object-position: center 24%;
+/* Video card: the full 9:16 clip is shown uncropped, with a blurred copy behind it */
+.new-card-video-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #b9b4ad;
+}
+.new-card-video-bg,
+.new-card-video-fg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.new-card-video-bg {
+  object-fit: cover;
+  filter: blur(22px) brightness(0.9);
+  transform: scale(1.15); /* hides the soft blurred edges */
+}
+.new-card-video-fg {
+  object-fit: contain;
+  transition: transform 0.5s ease;
+}
+.new-card:hover .new-card-video-fg {
+  transform: scale(1.03);
 }
 
 /* Gradient overlay at bottom for label readability */
