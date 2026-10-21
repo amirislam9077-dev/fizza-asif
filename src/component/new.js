@@ -6,10 +6,9 @@ const categories = [
   {
     id: 1,
     productId: 'veil-of-dawn-br-05',
-    // Runway clip, already cropped to the card's 3:4 shape so it fills the card
+    // Full 16:9 runway clip (Kling watermark painted out), shown uncropped
     video: '/videos/bridal-couture.mp4',
     poster: '/videos/bridal-couture-poster.jpg',
-    videoFit: 'cover',
     gradient: 'linear-gradient(135deg, #3a3028 0%, #7a6a58 100%)',
     label: "Bridal Couture '26",
   },
