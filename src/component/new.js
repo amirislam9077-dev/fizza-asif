@@ -6,6 +6,10 @@ const categories = [
   {
     id: 1,
     productId: 'veil-of-dawn-br-05',
+    // Runway clip, already cropped to the card's 3:4 shape so it fills the card
+    video: '/videos/bridal-couture.mp4',
+    poster: '/videos/bridal-couture-poster.jpg',
+    videoFit: 'cover',
     gradient: 'linear-gradient(135deg, #3a3028 0%, #7a6a58 100%)',
     label: "Bridal Couture '26",
   },
@@ -39,7 +43,19 @@ export default function NewArrivals({ onProductClick }) {
             style={{ cursor: 'pointer' }}
           >
             <div className="new-card-inner" style={{ background: cat.gradient }}>
-              {cat.video ? (
+              {cat.video && cat.videoFit === 'cover' ? (
+                // muted + playsInline are required for autoplay on phones (iPhone especially)
+                <video
+                  src={cat.video}
+                  poster={cat.poster}
+                  className="new-card-img"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  aria-label={cat.label}
+                />
+              ) : cat.video ? (
                 // Whole (uncropped) clip in front, a blurred copy behind fills the sides.
                 // muted + playsInline are required for autoplay on phones (iPhone especially).
                 <div className="new-card-video-wrap">
