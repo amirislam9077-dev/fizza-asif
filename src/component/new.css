@@ -52,6 +52,12 @@
   transform: scale(1.04);
 }
 
+/* The WhatsApp clip (480x1040) has ~9% black bands top and bottom; the card shows
+   the middle ~60% of the frame, so start the view just below the top band. */
+.new-card-video {
+  object-position: center 24%;
+}
+
 /* Gradient overlay at bottom for label readability */
 .new-card-overlay {
   position: absolute;

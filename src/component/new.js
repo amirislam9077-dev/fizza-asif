@@ -18,6 +18,7 @@ const categories = [
   {
     id: 3,
     productId: 'the-ivory-muse-d-02',
+    video: '/videos/ak-kaftan.mp4', // plays instead of the product picture
     gradient: 'linear-gradient(135deg, #1e1e2a 0%, #3a3a5a 100%)',
     label: 'Demi Couture',
   },
@@ -36,12 +37,26 @@ export default function NewArrivals({ onProductClick }) {
             style={{ cursor: 'pointer' }}
           >
             <div className="new-card-inner" style={{ background: cat.gradient }}>
-              <img
-                src={products[cat.productId].images[0]}
-                alt={products[cat.productId].name}
-                className="new-card-img"
-                onError={e => { e.target.style.display = 'none'; }}
-              />
+              {cat.video ? (
+                // muted + playsInline are required for autoplay on phones (iPhone especially)
+                <video
+                  src={cat.video}
+                  className="new-card-img new-card-video"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  aria-label={cat.label}
+                />
+              ) : (
+                <img
+                  src={products[cat.productId].images[0]}
+                  alt={products[cat.productId].name}
+                  className="new-card-img"
+                  onError={e => { e.target.style.display = 'none'; }}
+                />
+              )}
               <div className="new-card-overlay" />
               <span className="new-card-label">{cat.label}</span>
             </div>

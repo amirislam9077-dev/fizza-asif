@@ -3,8 +3,6 @@ import './pro2.css';
 const promos = [
   {
     id: 1,
-    // Plays instead of the picture; the picture shows while the clip loads
-    video: '/videos/ak-kaftan.mp4',
     image: 'https://www.ammarakhan.com/cdn/shop/files/67_ce7863ec-27b7-46f3-bb5d-1be94d58ca44.webp',
     gradient: 'linear-gradient(160deg, #7a2020 0%, #c0392b 100%)',
     tag: 'TRENDING',
@@ -38,28 +36,12 @@ export default function Pro2({ onCollectionClick }) {
             style={{ cursor: 'pointer' }}
           >
             <div className="pro2-card-inner" style={{ background: p.gradient }}>
-              {p.video ? (
-                // muted + playsInline are required for autoplay on phones (iPhone especially)
-                <div className="pro2-img pro2-video-wrap">
-                  <video
-                    src={p.video}
-                    className="pro2-video"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    aria-label={p.title}
-                  />
-                </div>
-              ) : (
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  className="pro2-img"
-                  onError={e => { e.target.style.display = 'none'; }}
-                />
-              )}
+              <img
+                src={p.image}
+                alt={p.title}
+                className="pro2-img"
+                onError={e => { e.target.style.display = 'none'; }}
+              />
               <div className="pro2-content">
                 <span className="pro2-tag">{p.tag}</span>
                 <h3 className="pro2-title">{p.title}</h3>
