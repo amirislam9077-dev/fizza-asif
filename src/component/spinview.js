@@ -68,6 +68,12 @@ export default function SpinView({ images, name }) {
     if (e.pointerType === 'mouse' && !drag.current) setZoom(null);
   }
 
+  function step(dir) {
+    setTouched(true);
+    setZoom(null);
+    setIndex(i => ((i + dir) % n + n) % n);
+  }
+
   const current = images[index];
 
   return (
@@ -102,6 +108,38 @@ export default function SpinView({ images, name }) {
           </div>
         )}
         {!zoom && <div className="spin-zoom-hint">Hover or tap to zoom</div>}
+
+        {n > 1 && (
+          <>
+            {/* Pointer events stop here so arrow clicks don't start a drag or zoom */}
+            <button
+              className="spin-arrow left"
+              onPointerEnter={() => setZoom(null)}
+              onPointerDown={e => e.stopPropagation()}
+              onPointerMove={e => e.stopPropagation()}
+              onPointerUp={e => e.stopPropagation()}
+              onClick={() => step(-1)}
+              aria-label="Previous view"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" width="20" height="20">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+            </button>
+            <button
+              className="spin-arrow right"
+              onPointerEnter={() => setZoom(null)}
+              onPointerDown={e => e.stopPropagation()}
+              onPointerMove={e => e.stopPropagation()}
+              onPointerUp={e => e.stopPropagation()}
+              onClick={() => step(1)}
+              aria-label="Next view"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" width="20" height="20">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </button>
+          </>
+        )}
       </div>
 
       {n > 1 && (
