@@ -1,12 +1,15 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import './newpro.css';
 import Footer from './footer';
+import Viewer3D from './viewer3d';
 import { products, getRecommended } from '../data/products';
 
 export default function Product({ productId, onBack, onAddToCart, onProductClick }) {
   const product = products[productId];
   const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
   const [qty, setQty] = useState(1);
+  const [show3D, setShow3D] = useState(false);
+  const close3D = useCallback(() => setShow3D(false), []);
   const recRef = useRef(null);
   const recommended = getRecommended(product);
 
@@ -51,6 +54,16 @@ export default function Product({ productId, onBack, onAddToCart, onProductClick
           <h1 className="newpro-name">{product.name}</h1>
           <p className="newpro-collection">{product.collection}</p>
           <p className="newpro-price">{product.price}</p>
+
+          {/* Only products that have a .glb model get the 3D view */}
+          {product.model3d && (
+            <button className="newpro-3d-btn" onClick={() => setShow3D(true)}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" width="18" height="18">
+                <path d="M12 2 3 7v10l9 5 9-5V7z" /><path d="M3 7l9 5 9-5" /><line x1="12" y1="12" x2="12" y2="22" />
+              </svg>
+              3D VIEW
+            </button>
+          )}
 
           <hr className="newpro-divider" />
 
@@ -181,6 +194,10 @@ export default function Product({ productId, onBack, onAddToCart, onProductClick
       </section>
 
       <Footer />
+
+      {show3D && (
+        <Viewer3D src={product.model3d} poster={product.images[0]} title={product.name} onClose={close3D} />
+      )}
     </div>
   );
 }

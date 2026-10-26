@@ -1,0 +1,113 @@
+.v3d-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.v3d-panel {
+  width: min(960px, 100%);
+  height: min(760px, 100%);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.v3d-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid #eee;
+}
+
+.v3d-title {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: #1a1a1a;
+}
+
+.v3d-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #1a1a1a;
+  padding: 4px 8px;
+}
+.v3d-close:hover { color: #8a6a4a; }
+
+.v3d-stage {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  background: #f5f2ee;
+}
+
+.v3d-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #888;
+}
+
+.v3d-ar-btn {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a1a1a;
+  color: #fff;
+  border: none;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  padding: 12px 22px;
+  cursor: pointer;
+}
+
+.v3d-hint {
+  font-family: Arial, sans-serif;
+  font-size: 11.5px;
+  color: #888;
+  text-align: center;
+  padding: 10px 16px 14px;
+  margin: 0;
+}
+
+/* "3D VIEW" button on the product page */
+.newpro-3d-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px;
+  background: #f7f4f0;
+  border: 1px solid #c8a96e;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 2.5px;
+  font-weight: 700;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: background 0.25s;
+}
+.newpro-3d-btn:hover { background: #efe7da; }
+
+@media (max-width: 600px) {
+  .v3d-overlay { padding: 0; }
+  .v3d-panel { width: 100%; height: 100%; height: 100dvh; }
+}

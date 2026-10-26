@@ -1299,6 +1299,11 @@ const productList = [
   }
 ];
 
+// 3D models (.glb) for the "3D VIEW" button: product id -> file in public/models/
+// Example: 'veil-of-dawn-br-05': '/models/veil-of-dawn.glb'
+const models3d = {
+};
+
 export const products = Object.fromEntries(
   productList.map(p => [p.id, {
     sizes: SIZES,
@@ -1308,6 +1313,7 @@ export const products = Object.fromEntries(
     price: bridalPlaceholderPrice,
     ...groupDefaults[p.group],
     ...p,
+    model3d: models3d[p.id] || null,
   }])
 );
 
