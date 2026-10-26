@@ -9,6 +9,23 @@ function priceValue(p) {
   return parseInt(String(p.price).replace(/[^\d]/g, ''), 10) || 0;
 }
 
+// Subtle 3D tilt of a card's picture towards the mouse
+const TILT_DEG = 7;
+
+function tiltCard(e) {
+  const wrap = e.currentTarget.querySelector('.tlp-tilt');
+  if (!wrap) return;
+  const r = wrap.getBoundingClientRect();
+  const x = (e.clientX - r.left) / r.width - 0.5;
+  const y = (e.clientY - r.top) / r.height - 0.5;
+  wrap.style.transform = `perspective(900px) rotateY(${x * TILT_DEG * 2}deg) rotateX(${-y * TILT_DEG * 2}deg) scale(1.02)`;
+}
+
+function resetTilt(e) {
+  const wrap = e.currentTarget.querySelector('.tlp-tilt');
+  if (wrap) wrap.style.transform = '';
+}
+
 export default function Collection({ collectionKey, onBack, onHome, onProductClick }) {
   const [sort, setSort] = useState('Featured');
   const [sortOpen, setSortOpen] = useState(false);
@@ -99,9 +116,10 @@ export default function Collection({ collectionKey, onBack, onHome, onProductCli
             style={{ cursor: 'pointer' }}
             onClick={() => onProductClick(item.id)}
             onMouseEnter={() => setHoveredId(item.id)}
-            onMouseLeave={() => setHoveredId(null)}
+            onMouseMove={tiltCard}
+            onMouseLeave={e => { setHoveredId(null); resetTilt(e); }}
           >
-            <div className="tlp-img-wrap">
+            <div className="tlp-img-wrap tlp-tilt">
               {item.soldOut && <span className="tlp-sold-badge">SOLD OUT</span>}
               <img
                 src={hoveredId === item.id && item.images[1] ? item.images[1] : item.images[0]}

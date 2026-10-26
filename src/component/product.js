@@ -2,6 +2,7 @@ import { useState, useRef, useCallback } from 'react';
 import './newpro.css';
 import Footer from './footer';
 import Viewer3D from './viewer3d';
+import SpinView from './spinview';
 import { products, getRecommended } from '../data/products';
 
 export default function Product({ productId, onBack, onAddToCart, onProductClick }) {
@@ -28,22 +29,9 @@ export default function Product({ productId, onBack, onAddToCart, onProductClick
       {/* ── Main product grid ── */}
       <div className="newpro-page">
 
-        {/* Left — images (an odd last image spans the full width) */}
+        {/* Left — interactive viewer: drag to rotate through the angles, hover/tap to zoom */}
         <div className="newpro-images">
-          <div className="newpro-main-imgs">
-            {product.images.map((img, i) => {
-              const isLastOdd = i === product.images.length - 1 && product.images.length % 2 === 1;
-              return (
-                <img
-                  key={img}
-                  src={img}
-                  alt={`${product.name} view ${i + 1}`}
-                  className={`newpro-main-img${isLastOdd ? ' newpro-main-img--full' : ''}`}
-                  onError={e => { e.target.style.display = 'none'; }}
-                />
-              );
-            })}
-          </div>
+          <SpinView images={product.images} name={product.name} />
         </div>
 
         {/* Right — product details */}

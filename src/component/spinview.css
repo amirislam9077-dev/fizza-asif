@@ -1,0 +1,97 @@
+.spin {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.spin-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: #f5ede8;
+  cursor: grab;
+  touch-action: pan-y; /* vertical swipes still scroll the page on phones */
+  user-select: none;
+}
+.spin-stage:active { cursor: grabbing; }
+.spin-stage.zoomed { cursor: zoom-in; }
+
+.spin-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  pointer-events: none;
+}
+
+/* Magnified copy of the picture that follows the cursor / tap point */
+.spin-lens {
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  background-color: #f5ede8;
+  pointer-events: none;
+}
+
+.spin-hint,
+.spin-zoom-hint {
+  position: absolute;
+  z-index: 2;
+  font-family: Arial, sans-serif;
+  letter-spacing: 1px;
+  color: #1a1a1a;
+  background: rgba(255, 255, 255, 0.88);
+  pointer-events: none;
+}
+.spin-hint {
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 8px 14px;
+  white-space: nowrap;
+}
+.spin-zoom-hint {
+  top: 12px;
+  right: 12px;
+  font-size: 10px;
+  padding: 5px 9px;
+}
+
+.spin-thumbs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.spin-thumbs::-webkit-scrollbar { display: none; }
+
+.spin-thumb {
+  flex: 0 0 72px;
+  aspect-ratio: 3 / 4;
+  padding: 0;
+  border: 2px solid transparent;
+  background: #f5ede8;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.spin-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.spin-thumb.active,
+.spin-thumb:hover { border-color: #1a1a1a; }
+
+@media (max-width: 600px) {
+  .spin-thumb { flex-basis: 56px; }
+  .spin-hint { font-size: 10px; padding: 7px 11px; }
+}

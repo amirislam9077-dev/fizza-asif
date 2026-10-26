@@ -172,6 +172,15 @@
   background: #f5ede8;
 }
 
+/* 3D tilt (transform set from collection.js on mouse move) */
+.tlp-tilt {
+  transition: transform 0.15s ease-out, box-shadow 0.3s;
+  will-change: transform;
+}
+.tlp-card:hover .tlp-tilt {
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+}
+
 .tlp-sold-badge {
   position: absolute;
   top: 10px;
