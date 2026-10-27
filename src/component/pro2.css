@@ -36,17 +36,22 @@
   position: relative;
   width: 100%;
   aspect-ratio: 3 / 3.5;
+  /* Whole card fits on one screen under the 52px scrolled header */
+  max-height: calc(100vh - 52px);
+  max-height: calc(100svh - 52px);
+  min-height: 420px;
   overflow: hidden;
 }
 
-/* Image bottom-aligned like the reference */
+/* Image bottom-aligned like the reference; keeps a 3:4 portrait shape when the card gets shorter */
 .pro2-img {
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 75%;
-  height: 78%;
+  height: 76%;
+  aspect-ratio: 3 / 4;
+  max-width: 75%;
   object-fit: cover;
   object-position: top center;
   display: block;
