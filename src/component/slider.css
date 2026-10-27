@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&display=swap');
 
+/* Fits the screen: never taller than the space left under the 124px header */
 .slider {
   position: relative;
   width: 100%;
-  height: 56vw;
-  max-height: 680px;
-  min-height: 420px;
+  height: min(56vw, calc(100vh - 124px));
+  height: min(56vw, calc(100svh - 124px)); /* svh ignores mobile browser bars */
+  min-height: 300px;
   overflow: hidden;
   display: block;
 }
@@ -128,7 +129,6 @@
 
 /* ── Tablet ── */
 @media (max-width: 1024px) {
-  .slider { min-height: 380px; }
   .slide-content.align-left  { left: 56px; }
   .slide-content.align-right { right: 56px; }
   .slide-title { font-size: 44px; }
