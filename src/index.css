@@ -11,7 +11,7 @@ html, body {
 /* Page wrapper: leaves room for the fixed header */
 .app-shell {
   width: 100%;
-  padding-top: 160px;
+  padding-top: 124px; /* = header height on desktop and tablet */
   overflow-x: clip;
 }
 .app-shell--checkout { padding-top: 0; }

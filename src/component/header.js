@@ -89,13 +89,11 @@ export default function Header({ cartCount = 0, onCartOpen, onNavClick }) {
           <span className="ann-text">{announcements[annIndex]}</span>
           <button className="ann-arrow" onClick={() => setAnnIndex(i => (i + 1) % announcements.length)}>&#8250;</button>
         </div>
-        <div className="top-bar">
+        <div className="brand-bar">
+          <a href="/" className="brand-name">FIZZA ASIF</a>
           <div className="social-icons">
             {socialLinks.map(s => <SocialIcon key={s.icon} {...s} />)}
           </div>
-        </div>
-        <div className="brand-bar">
-          <a href="/" className="brand-name">FIZZA ASIF</a>
         </div>
       </div>
 
