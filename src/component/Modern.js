@@ -3,8 +3,14 @@ import './Modern.css';
 export default function Modern({ onCollectionClick }) {
   return (
     <section className="modern-section">
-      {/* Left — large image */}
+      {/* Left — whole picture (uncropped) with a blurred copy filling the sides */}
       <div className="modern-left">
+        <img
+          src="https://www.ammarakhan.com/cdn/shop/files/D-04_3.jpg?format=webp&v=1744195342&width=1200"
+          alt=""
+          aria-hidden="true"
+          className="modern-img-bg"
+        />
         <img
           src="https://www.ammarakhan.com/cdn/shop/files/D-04_3.jpg?format=webp&v=1744195342&width=1200"
           alt="Modern Elegance"
