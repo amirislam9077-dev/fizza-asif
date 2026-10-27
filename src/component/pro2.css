@@ -15,7 +15,7 @@
   font-size: 17px;
   color: #b8860b;
   letter-spacing: 0.3px;
-  padding: 7px 40px 28px;
+  padding: 0 40px 28px;
 }
 
 /* 2 equal columns */
@@ -105,7 +105,7 @@
 
 /* ── Tablet ── */
 @media (max-width: 1024px) {
-  .pro2-quote { font-size: 15px; padding: 3px 24px 24px; }
+  .pro2-quote { font-size: 15px; padding: 0 24px 24px; }
   .pro2-title { font-size: 28px; }
   .pro2-content { top: 22px; }
 }
