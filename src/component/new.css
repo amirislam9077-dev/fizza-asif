@@ -1,6 +1,6 @@
 .new-arrivals {
   width: 100%;
-  padding: 48px 24px 40px;
+  padding: 28px 24px 32px;
   background: #fff;
 }
 
@@ -11,7 +11,7 @@
   font-size: 32px;
   letter-spacing: 4px;
   color: #1a1a1a;
-  margin-bottom: 28px;
+  margin-bottom: 18px;
   text-transform: uppercase;
 }
 
@@ -33,6 +33,10 @@
   position: relative;
   width: 100%;
   aspect-ratio: 3 / 4;
+  /* Title + cards fit on one screen under the 52px scrolled header */
+  max-height: calc(100vh - 170px);
+  max-height: calc(100svh - 170px);
+  min-height: 320px;
   overflow: hidden;
   cursor: pointer;
 }
