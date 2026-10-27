@@ -25,8 +25,14 @@ export default function Timeless({ onCollectionClick }) {
         <span className="timeless-explore">EXPLORE</span>
       </div>
 
-      {/* Right — large full-height image */}
+      {/* Right — whole picture (uncropped) with a blurred copy filling the sides */}
       <div className="timeless-right">
+        <img
+          src={products['the-coral-bloom-d-03'].images[0]}
+          alt=""
+          aria-hidden="true"
+          className="timeless-main-bg"
+        />
         <img
           src={products['the-coral-bloom-d-03'].images[0]}
           alt="New Arrivals"
