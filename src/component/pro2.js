@@ -1,4 +1,5 @@
 import './pro2.css';
+import { products } from '../data/products';
 
 const promos = [
   {
@@ -12,7 +13,8 @@ const promos = [
   },
   {
     id: 2,
-    image: 'https://www.ammarakhan.com/cdn/shop/files/550x550-_2.jpg',
+    // A portrait lawn-print picture from the collection itself, same shape as the Kaftan card
+    image: products['floral-hush-d-07'].images[0],
     gradient: 'linear-gradient(160deg, #8a7a60 0%, #c4a87a 100%)',
     tag: 'FOREVER BEST SELLERS',
     title: 'Luxury Prints',

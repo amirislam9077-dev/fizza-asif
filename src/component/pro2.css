@@ -32,33 +32,30 @@
   display: block;
 }
 
+/* Card grows with its picture; the text sits in the space reserved at the top */
 .pro2-card-inner {
   position: relative;
   width: 100%;
-  aspect-ratio: 3 / 3.5;
-  /* Whole card fits on one screen under the 52px scrolled header */
-  max-height: calc(100vh - 52px);
-  max-height: calc(100svh - 52px);
-  min-height: 420px;
+  height: 100%;
+  padding-top: 112px;
   overflow: hidden;
+  /* Pictures sit on the bottom edge so cards with different picture shapes line up */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
-/* Large, wide picture bottom-aligned under the text, with a thin coloured frame left around it */
+/* Complete picture at its natural shape (no cropping), wide, with a thin coloured frame */
 .pro2-img {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 84%;
-  height: 80%;
-  object-fit: cover;
-  object-position: center 20%;
   display: block;
+  width: 84%;
+  height: auto;
+  margin: 0 auto;
   transition: transform 0.5s ease;
 }
 
 .pro2-card:hover .pro2-img {
-  transform: translateX(-50%) scale(1.04);
+  transform: scale(1.03);
 }
 
 /* Text at top-center */
@@ -118,6 +115,6 @@
 @media (max-width: 600px) {
   .pro2-quote { font-size: 14px; padding: 0 20px 20px; }
   .pro2-grid { grid-template-columns: 1fr; }
-  .pro2-card-inner { aspect-ratio: 4 / 5; }
+  .pro2-card-inner { padding-top: 104px; }
   .pro2-title { font-size: 30px; }
 }
