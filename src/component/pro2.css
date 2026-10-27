@@ -43,17 +43,16 @@
   overflow: hidden;
 }
 
-/* Image bottom-aligned like the reference; keeps a 3:4 portrait shape when the card gets shorter */
+/* Large, wide picture bottom-aligned under the text, with a thin coloured frame left around it */
 .pro2-img {
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  height: 76%;
-  aspect-ratio: 3 / 4;
-  max-width: 75%;
+  width: 84%;
+  height: 80%;
   object-fit: cover;
-  object-position: top center;
+  object-position: center 20%;
   display: block;
   transition: transform 0.5s ease;
 }
@@ -65,7 +64,7 @@
 /* Text at top-center */
 .pro2-content {
   position: absolute;
-  top: 32px;
+  top: 22px;
   left: 0;
   right: 0;
   text-align: center;
