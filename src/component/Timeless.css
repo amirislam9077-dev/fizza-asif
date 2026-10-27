@@ -1,8 +1,12 @@
+/* Exactly one screen tall under the 52px scrolled header */
 .timeless-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 100%;
-  min-height: 580px;
+  height: calc(100vh - 52px);
+  height: calc(100svh - 52px);
+  min-height: 480px;
+  max-height: 760px;
 }
 
 /* ── Left black panel ── */
@@ -12,8 +16,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 60px 48px;
-  gap: 18px;
+  padding: 28px 48px;
+  gap: 14px;
   text-align: center;
 }
 
@@ -54,10 +58,10 @@
 
 /* Small thumbnail image */
 .timeless-thumb-wrap {
-  width: 220px;
+  width: 190px;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  margin: 4px 0;
+  margin: 2px 0;
 }
 
 .timeless-thumb {
@@ -101,6 +105,8 @@
 }
 
 .timeless-main-img {
+  position: absolute; /* fills the panel instead of setting its height */
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -115,16 +121,16 @@
 
 /* ── Tablet ── */
 @media (max-width: 1024px) {
-  .timeless-section { min-height: 480px; }
-  .timeless-left { padding: 48px 28px; }
+  .timeless-left { padding: 28px 28px; }
   .timeless-title { font-size: 30px; }
   .timeless-thumb-wrap { width: 180px; }
 }
 
 /* ── Phone: text panel on top, picture below ── */
 @media (max-width: 600px) {
-  .timeless-section { grid-template-columns: 1fr; min-height: 0; }
-  .timeless-left { padding: 40px 20px; gap: 14px; }
+  /* Stacked: text panel, then the picture, each fitting the screen */
+  .timeless-section { grid-template-columns: 1fr; height: auto; min-height: 0; max-height: none; }
+  .timeless-left { padding: 32px 20px; gap: 12px; }
   .timeless-title { font-size: 28px; }
   .timeless-quote { font-size: 12.5px; }
   .timeless-thumb-wrap { width: 160px; }
