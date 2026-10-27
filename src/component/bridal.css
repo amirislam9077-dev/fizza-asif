@@ -1,7 +1,7 @@
 .bridal-section {
   width: 100%;
   background: #fff;
-  padding: 48px 24px 52px;
+  padding: 26px 24px 32px;
 }
 
 /* Header: title left, arrows right */
@@ -10,7 +10,7 @@
   align-items: flex-start;
   justify-content: space-between;
   max-width: 1400px;
-  margin: 0 auto 28px;
+  margin: 0 auto 18px;
 }
 
 .bridal-header-left {
@@ -82,6 +82,10 @@
 .bridal-img {
   width: 100%;
   aspect-ratio: 3 / 4;
+  /* Title + cards fit on one screen under the 52px scrolled header */
+  max-height: calc(100vh - 180px);
+  max-height: calc(100svh - 180px);
+  min-height: 300px;
   object-fit: cover;
   object-position: center top;
   display: block;
@@ -94,14 +98,14 @@
 
 /* ── Tablet ── */
 @media (max-width: 1024px) {
-  .bridal-section { padding: 40px 16px 44px; }
+  .bridal-section { padding: 24px 16px 32px; }
   .bridal-title { font-size: 26px; }
   .bridal-grid { gap: 10px; }
 }
 
 /* ── Phone: swipeable row, ~1.3 cards visible ── */
 @media (max-width: 600px) {
-  .bridal-section { padding: 32px 16px 36px; }
+  .bridal-section { padding: 22px 16px 28px; }
   .bridal-header { margin-bottom: 18px; }
   .bridal-title { font-size: 22px; }
   .bridal-grid {
