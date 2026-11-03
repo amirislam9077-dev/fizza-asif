@@ -115,12 +115,17 @@
 /* ── 360° photo view ── */
 .s360-stage {
   overflow: hidden;
-  cursor: grab;
+  cursor: ew-resize;
   touch-action: none;
   user-select: none;
 }
-.s360-stage:active { cursor: grabbing; }
-.s360-stage.is-zoomed { cursor: move; }
+.s360-stage.is-zoomed { cursor: zoom-in; }
+
+.s360-hint-touch { display: none; }
+@media (hover: none) {
+  .s360-hint-mouse { display: none; }
+  .s360-hint-touch { display: inline; }
+}
 
 .s360-img {
   position: absolute;
@@ -130,7 +135,7 @@
   height: calc(100% - 76px); /* leaves room for the controls below the feet */
   object-fit: contain;
   pointer-events: none;
-  transition: transform 0.15s ease-out;
+  transition: transform 0.2s ease-out;
 }
 
 .s360-controls {

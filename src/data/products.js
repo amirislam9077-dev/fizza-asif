@@ -44,7 +44,7 @@ const productList = [
       "/products/emerald/6.webp"
     ],
     // Photos taken all around the mannequin, in turning order, for the 360° view
-    "spin360": Array.from({ length: 23 }, (_, i) => `/spin/emerald/${String(i + 1).padStart(2, '0')}.webp`),
+    "spin360": Array.from({ length: 20 }, (_, i) => `/spin/emerald/${String(i + 1).padStart(2, '0')}.webp`),
     "description": "An ivory kurta with a hand-embellished neckline and bordered hem, paired with a flowing sharara and an emerald chiffon dupatta worked with embroidered motifs and a rich border all around.",
     "color": "Emerald & Ivory",
     "pieces": "3pcs (Kurta + Sharara + Dupatta)"

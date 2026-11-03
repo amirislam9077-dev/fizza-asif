@@ -1,17 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
 import './viewer3d.css';
 
-const AUTO_SPIN_MS = 140;
-const PX_PER_FRAME = 12;
+const PX_PER_FRAME = 14; // touch drag distance for one frame
 const MIN_ZOOM = 1, MAX_ZOOM = 3;
 
-// Full-screen 360° view built from photos taken all around the product:
-// drag to turn it, scroll / pinch (or the + − buttons) to zoom, drag while zoomed to move.
+// Full-screen 360° view built from photos taken all around the product.
+// Mouse: move left / right over the picture to turn it; when zoomed, the picture follows the mouse.
+// Touch: drag to turn, pinch to zoom, drag to move when zoomed.
 export default function Spin360({ frames, title, onClose }) {
   const [index, setIndex] = useState(0);
-  const [spinning, setSpinning] = useState(true);
   const [zoom, setZoom] = useState(1);
-  const [pan, setPan] = useState({ x: 0, y: 0 });
+  const [origin, setOrigin] = useState({ x: 50, y: 50 }); // zoom focus in %
   const drag = useRef(null);
   const pinch = useRef(null);
   const stageRef = useRef(null);
@@ -22,16 +21,10 @@ export default function Spin360({ frames, title, onClose }) {
   }, [frames]);
 
   useEffect(() => {
-    if (!spinning) return;
-    const t = setInterval(() => setIndex(i => (i + 1) % n), AUTO_SPIN_MS);
-    return () => clearInterval(t);
-  }, [spinning, n]);
-
-  useEffect(() => {
     function onKey(e) {
       if (e.key === 'Escape') onClose();
-      if (e.key === 'ArrowLeft') { setSpinning(false); setIndex(i => (i - 1 + n) % n); }
-      if (e.key === 'ArrowRight') { setSpinning(false); setIndex(i => (i + 1) % n); }
+      if (e.key === 'ArrowLeft') setIndex(i => (i - 1 + n) % n);
+      if (e.key === 'ArrowRight') setIndex(i => (i + 1) % n);
     }
     document.addEventListener('keydown', onKey);
     document.body.style.overflow = 'hidden';
@@ -46,7 +39,6 @@ export default function Spin360({ frames, title, onClose }) {
     const el = stageRef.current;
     function onWheel(e) {
       e.preventDefault();
-      setSpinning(false);
       changeZoom(e.deltaY < 0 ? 0.25 : -0.25);
     }
     el.addEventListener('wheel', onWheel, { passive: false });
@@ -54,29 +46,43 @@ export default function Spin360({ frames, title, onClose }) {
   }, []);
 
   function changeZoom(step) {
-    setZoom(z => {
-      const next = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, z + step));
-      if (next === 1) setPan({ x: 0, y: 0 });
-      return next;
-    });
+    setZoom(z => Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, z + step)));
   }
 
-  function onPointerDown(e) {
-    setSpinning(false);
-    e.currentTarget.setPointerCapture(e.pointerId);
-    drag.current = { x: e.clientX, y: e.clientY, index, pan };
+  function pointInStage(e) {
+    const r = stageRef.current.getBoundingClientRect();
+    return {
+      x: Math.min(1, Math.max(0, (e.clientX - r.left) / r.width)),
+      y: Math.min(1, Math.max(0, (e.clientY - r.top) / r.height)),
+    };
   }
 
   function onPointerMove(e) {
+    const p = pointInStage(e);
+    if (e.pointerType === 'mouse') {
+      if (zoom > 1) setOrigin({ x: p.x * 100, y: p.y * 100 });
+      else setIndex(Math.min(n - 1, Math.floor(p.x * n)));
+      return;
+    }
     const d = drag.current;
     if (!d || pinch.current) return;
     const dx = e.clientX - d.x, dy = e.clientY - d.y;
     if (zoom > 1) {
-      setPan({ x: d.pan.x + dx / zoom, y: d.pan.y + dy / zoom });
+      const r = stageRef.current.getBoundingClientRect();
+      setOrigin({
+        x: Math.min(100, Math.max(0, d.origin.x - (dx / r.width) * 100)),
+        y: Math.min(100, Math.max(0, d.origin.y - (dy / r.height) * 100)),
+      });
     } else {
       const steps = Math.round(dx / PX_PER_FRAME);
       setIndex(((d.index - steps) % n + n) % n);
     }
+  }
+
+  function onPointerDown(e) {
+    if (e.pointerType === 'mouse') return;
+    e.currentTarget.setPointerCapture(e.pointerId);
+    drag.current = { x: e.clientX, y: e.clientY, index, origin };
   }
 
   function onPointerUp() { drag.current = null; }
@@ -92,9 +98,7 @@ export default function Spin360({ frames, title, onClose }) {
     if (!pinch.current || e.touches.length !== 2) return;
     const [a, b] = e.touches;
     const dist = Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
-    const next = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, pinch.current.zoom * dist / pinch.current.dist));
-    setZoom(next);
-    if (next === 1) setPan({ x: 0, y: 0 });
+    setZoom(Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, pinch.current.zoom * dist / pinch.current.dist)));
   }
 
   function onTouchEnd(e) { if (e.touches.length < 2) pinch.current = null; }
@@ -125,20 +129,22 @@ export default function Spin360({ frames, title, onClose }) {
             alt={`${title}, view ${index + 1} of ${n}`}
             className="s360-img"
             draggable={false}
-            style={{ transform: `scale(${zoom}) translate(${pan.x}px, ${pan.y}px)` }}
+            style={{ transform: `scale(${zoom})`, transformOrigin: `${origin.x}% ${origin.y}%` }}
           />
 
-          <div className="s360-controls" onPointerDown={e => e.stopPropagation()}>
-            <button onClick={() => setSpinning(s => !s)} aria-label={spinning ? 'Pause' : 'Play'}>
-              {spinning ? '❚❚' : '▶'}
-            </button>
+          <div className="s360-controls" onPointerDown={e => e.stopPropagation()} onPointerMove={e => e.stopPropagation()}>
+            <button onClick={() => setIndex(i => (i - 1 + n) % n)} aria-label="Turn left">‹</button>
             <button onClick={() => changeZoom(-0.5)} aria-label="Zoom out">−</button>
             <span className="s360-deg">{deg}°</span>
             <button onClick={() => changeZoom(0.5)} aria-label="Zoom in">+</button>
+            <button onClick={() => setIndex(i => (i + 1) % n)} aria-label="Turn right">›</button>
           </div>
         </div>
 
-        <p className="v3d-hint">Drag to turn · Scroll or pinch to zoom · Drag to move when zoomed</p>
+        <p className="v3d-hint">
+          <span className="s360-hint-mouse">Move the mouse left / right to turn · Scroll to zoom</span>
+          <span className="s360-hint-touch">Drag to turn · Pinch to zoom</span>
+        </p>
       </div>
     </div>
   );
