@@ -28,6 +28,28 @@ const bridalPlaceholderPrice = 'Rs. 450,000';
 
 const productList = [
   {
+    "id": "emerald-grace-sharara",
+    "group": "luxury",
+    "name": "Emerald Grace (Sharara Set)",
+    "badge": "NEW · 360° VIEW",
+    // Placeholder price, change it to the real one
+    "price": "Rs. 45,000",
+    "images": [
+      "/spin/emerald/01.webp",
+      "/products/emerald/1.webp",
+      "/products/emerald/2.webp",
+      "/products/emerald/3.webp",
+      "/products/emerald/4.webp",
+      "/products/emerald/5.webp",
+      "/products/emerald/6.webp"
+    ],
+    // Photos taken all around the mannequin, in turning order, for the 360° view
+    "spin360": Array.from({ length: 23 }, (_, i) => `/spin/emerald/${String(i + 1).padStart(2, '0')}.webp`),
+    "description": "An ivory kurta with a hand-embellished neckline and bordered hem, paired with a flowing sharara and an emerald chiffon dupatta worked with embroidered motifs and a rich border all around.",
+    "color": "Emerald & Ivory",
+    "pieces": "3pcs (Kurta + Sharara + Dupatta)"
+  },
+  {
     "id": "veil-of-dawn-br-05",
     "group": "bridal",
     "name": "Veil of Dawn (BR-05)",
@@ -1388,6 +1410,7 @@ export const collections = {
   "newarrivals": {
     "title": "New Arrivals",
     "productIds": [
+      "emerald-grace-sharara",
       "the-ivory-muse-d-02",
       "the-coral-bloom-d-03",
       "gilded-nikah-bridal-d-06",

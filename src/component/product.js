@@ -3,6 +3,7 @@ import './newpro.css';
 import Footer from './footer';
 import Viewer3D from './viewer3d';
 import SpinView from './spinview';
+import Spin360 from './spin360';
 import { products, getRecommended } from '../data/products';
 
 export default function Product({ productId, onBack, onAddToCart, onProductClick }) {
@@ -11,6 +12,8 @@ export default function Product({ productId, onBack, onAddToCart, onProductClick
   const [qty, setQty] = useState(1);
   const [show3D, setShow3D] = useState(false);
   const close3D = useCallback(() => setShow3D(false), []);
+  const [show360, setShow360] = useState(false);
+  const close360 = useCallback(() => setShow360(false), []);
   const recRef = useRef(null);
   const recommended = getRecommended(product);
 
@@ -50,6 +53,16 @@ export default function Product({ productId, onBack, onAddToCart, onProductClick
                 <path d="M12 2 3 7v10l9 5 9-5V7z" /><path d="M3 7l9 5 9-5" /><line x1="12" y1="12" x2="12" y2="22" />
               </svg>
               3D VIEW
+            </button>
+          )}
+
+          {/* Products photographed all around get the 360° view */}
+          {product.spin360 && (
+            <button className="newpro-3d-btn" onClick={() => setShow360(true)}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" width="18" height="18">
+                <ellipse cx="12" cy="12" rx="10" ry="4" /><path d="M12 4v16" /><path d="m17 15 3 1-1 3" />
+              </svg>
+              360° VIEW
             </button>
           )}
 
@@ -182,6 +195,10 @@ export default function Product({ productId, onBack, onAddToCart, onProductClick
       </section>
 
       <Footer />
+
+      {show360 && (
+        <Spin360 frames={product.spin360} title={product.name} onClose={close360} />
+      )}
 
       {show3D && (
         <Viewer3D src={product.model3d} poster={product.images[0]} title={product.name} onClose={close3D} />

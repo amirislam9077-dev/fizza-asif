@@ -111,3 +111,58 @@
   .v3d-overlay { padding: 0; }
   .v3d-panel { width: 100%; height: 100%; height: 100dvh; }
 }
+
+/* ── 360° photo view ── */
+.s360-stage {
+  overflow: hidden;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+.s360-stage:active { cursor: grabbing; }
+.s360-stage.is-zoomed { cursor: move; }
+
+.s360-img {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 76px); /* leaves room for the controls below the feet */
+  object-fit: contain;
+  pointer-events: none;
+  transition: transform 0.15s ease-out;
+}
+
+.s360-controls {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #e4ddd2;
+  border-radius: 999px;
+  padding: 4px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+.s360-controls button {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  font-size: 16px;
+  color: #1a1a1a;
+  cursor: pointer;
+}
+.s360-controls button:hover { background: #f1ebe2; }
+.s360-deg {
+  min-width: 44px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #555;
+}
